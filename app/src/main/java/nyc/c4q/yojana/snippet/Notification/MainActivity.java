@@ -27,8 +27,8 @@ public class MainActivity extends Activity {
 //        scheduleAlarm();
         int NOTIFICATION_ID = 555;
 
-        Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra("cat",new Cat());
+        Intent intent = new Intent(this, CatActivity.class);
+        intent.putExtra("cat", new CCat());
 
         int requestID = (int) System.currentTimeMillis();
         int flags = PendingIntent.FLAG_CANCEL_CURRENT;
@@ -41,7 +41,6 @@ public class MainActivity extends Activity {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
                 .build();
-
 
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

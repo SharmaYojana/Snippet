@@ -4,14 +4,14 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nyc.c4q.yojana.snippet.Database.CatActivity">
+    tools:context="nyc.c4q.yojana.snippet.Notification.CatActivity">
 
     <EditText
         android:id="@+id/et_cat_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:hint="@string/enter_cat_name"/>
+        android:hint="@string/enter_cat_name" />
 
     <Button
         android:id="@+id/btn_add_cat"

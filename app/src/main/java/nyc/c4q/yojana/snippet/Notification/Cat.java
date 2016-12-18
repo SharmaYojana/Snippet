@@ -1,38 +1,52 @@
 package nyc.c4q.yojana.snippet.Notification;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.util.Calendar;
+
+import nl.qbusict.cupboard.annotation.Column;
 
 /**
- * Created by yojanasharma on 12/13/16.
+ * Created by Ramona Harrison
+ * on 11/19/16.
  */
 
-public class Cat implements Parcelable {
+public class Cat {
 
+    // a POJO for cupboard must always contain a variable of type Long called _id.
+    // this will serve as the index for the POJO within the SQLite table and will
+    // auto-increment.
+    private Long _id;
+
+    private String name;
+
+    // column name defaults to field name
+    // or we can use @Column annotation to specify a custom name
+    @Column("last_fed")
+    private Long lastFed;
+
+    // required zero argument constructor
     public Cat() {
+        this.name = "Unknown";
+        this.lastFed = Calendar.getInstance().getTimeInMillis();
     }
 
-    protected Cat(Parcel in) {
+    public Cat(String name, Long lastFed) {
+        this.name = name;
+        this.lastFed = lastFed;
     }
 
-    public static final Creator<Cat> CREATOR = new Creator<Cat>() {
-        @Override
-        public Cat createFromParcel(Parcel in) {
-            return new Cat(in);
-        }
-
-        @Override
-        public Cat[] newArray(int size) {
-            return new Cat[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public Long getId() {
+        return _id;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getLastFed() {
+        return lastFed;
     }
 }
